@@ -1,1 +1,242 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color: #212121;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
 
+/* Header */
+header {
+  background-color: #000;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.hamburger {
+  width: 30px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hamburger.active {
+  transform: rotate(90deg); /* Rotate hamburger when clicked */
+}
+
+.hamburger .line {
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.brand-name-container {
+  flex-grow: 1;
+  text-align: center;
+  margin-right: 40px;
+}
+
+.brand-name-container p {
+  color: #ff6600;
+  font-size: 25px;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.brand-name-container:hover p {
+  color: #ffcc00;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  background: url('../images/homepg.jpg') no-repeat center center/cover;
+  height: 95vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* For positioning the overlay */
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero .overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInOverlay 1s ease-in-out forwards 1s; /* Delayed fade-in for overlay */
+}
+
+.hero h2 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #ff6600;
+  margin-bottom: 20px;
+  margin-top: -50px;
+  opacity: 0;
+  transform: translateX(-100%);
+  animation: slideIn 2s forwards ease-out;
+}
+
+.hero p {
+  font-size: 22px;
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(50px); /* Start below */
+  animation: fadeUp 1.5s forwards ease-out 1s;
+}
+
+.hero .btn {
+  background-color: #ff6600;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero .btn:hover {
+  background-color: #ffcc00;
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Footer */
+footer {
+  background-color: #212121;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Navigation Styles */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 20px; /* Spacing between the links */
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Arial', sans-serif;
+  padding: 10px 15px;
+  display: block;
+  transition: color 0.3s ease; /* Change font color */
+  border-radius: 5px; /* Rounded corners for links */
+}
+
+nav ul li a:hover {
+  color: #ff6600;
+}
+
+/* Mobile Menu */
+#menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 999;
+}
+
+#menu.active {
+  display: block;
+}
+
+#menu ul {
+  flex-direction: column;
+  align-items: center;
+}
+
+#menu ul li {
+  margin: 15px 0; /* More space between links in mobile view */
+}
+
+#menu ul li a {
+  font-size: 22px; /* Larger font size for mobile */
+  padding: 15px 0;
+}
+
+#menu ul li a:hover {
+  color: #ff6600; /* Change font color on hover in mobile menu */
+}
+
+/* Styling for when menu is opened */
+.hamburger.active + #menu {
+  display: block;
+}
+
+/* Animation keyframes */
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOverlay {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
